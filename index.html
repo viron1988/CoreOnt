@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#home" onclick="showImage('home')">Home</a></li>
+        <li><a href="#about" onclick="showImage('about')">About</a></li>
+        <li><a href="#contact" onclick="showImage('contact')">Contact</a></li>
+        <li><a href="#products" onclick="showImage('products')">Products</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div id="home" class="image-container">
+        <img src="home.jpg" alt="Home Image">
+      </div>
+      <div id="about" class="image-container">
+        <img src="about.jpg" alt="About Image">
+      </div>
+      <div id="contact" class="image-container">
+        <img src="contact.jpg" alt="Contact Image">
+      </div>
+      <div id="products" class="image-container">
+        <img src="products.jpg" alt="Products Image">
+      </div>
+    </div>
+  </body>
+</html>
