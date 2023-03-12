@@ -4,18 +4,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $message = $_POST["message"];
     
-    // Set your email address where you want to receive emails
+    // Set your SendGrid API key
+    $api_key = "YOUR_SENDGRID_API_KEY";
+    
+    // Set the recipient email address
     $to = "gnrrobotics@gmail.com";
     
     // Set the subject line of the email
     $subject = "New message from $name";
     
     // Construct the email headers
-    $headers = "From: $name <$email>" . "\r\n";
-    $headers .= "Reply-To: $name <$email>" . "\r\n";
+    $headers = array(
+        "Authorization: Bearer $api_key",
+        "Content-Type: application/json"
+    );
     
-    // Send the email
-    mail($to, $subject, $message, $headers);
+    // Construct the email body as a JSON string
+    $email_data = array(
+        "personalizations" => array(
+            array(
+                "to" => array(
+                    array(
+                        "email" => $to
+                    )
+                )
+            )
+        ),
+        "from" => array(
+            "email" => $email,
+            "name" => $name
+        ),
+        "subject" => $subject,
+        "content" => array(
+            array(
+                "type" => "text/plain",
+                "value" => $message
+            )
+        )
+    );
+    $json_email = json_encode($email_data);
+    
+    // Send the email using the SendGrid API
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_email);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    curl_close($ch);
     
     // Redirect the user to a thank-you page
     header("Location: thank-you.html");
