@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+#article-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#article-list li {
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+#article-list li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav a {
+  display: block;
+  padding: 10px;
+}
+
+header nav a:hover {
+  background-color: #555555;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Contact styles */
+form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-top: 20px;
+}
+
+form input[type="text"], form input[type="email"], form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+form input[type="submit"] {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #555555;
+}
