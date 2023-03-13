@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
     
     // Set your SendGrid API key
-    $api_key = "TQu3oz1fR_uVWEig9gu5yg";
+    $api_key = "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";
     
     // Set the recipient email address
     $to = "gnrrobotics@gmail.com";
