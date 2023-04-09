@@ -4,7 +4,7 @@
 $postData = file_get_contents('php://input');
 
 // Set the URL of your AWS server
-$url = 'http://123.45.67.89/sendemail.php';
+$url = 'http://44.208.130.22/sendemail.php';
 
 // Set any headers that are required for your request (e.g. Content-Type)
 $headers = array('Content-Type: application/json');
