@@ -8,6 +8,9 @@ $headers = array('Content-Type: application/json');
 // Allow requests from any origin
 header('Access-Control-Allow-Origin: *');
 
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+
+
 // Handle pre-flight requests
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
