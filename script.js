@@ -5,9 +5,21 @@ function handleArticleClick(event) {
   
   // Get the URL of the article from the link's href attribute
   var articleUrl = event.target.getAttribute("href");
-  
-  // Set the current page URL to the article URL
-  window.location = articleUrl;
+
+  // Send an AJAX request to the server to log the article click
+  $.ajax({
+    url: "/log-click.php",
+    type: "POST",
+    data: { url: articleUrl },
+    success: function() {
+      // If the request was successful, navigate to the article URL
+      window.location = articleUrl;
+    },
+    error: function() {
+      // If there was an error with the request, log the error to the console
+      console.log("Error logging article click.");
+    }
+  });
 }
 
 // Get a reference to the article list element
