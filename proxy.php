@@ -10,14 +10,13 @@ $url = 'http://44.208.130.22/sendemail.php';
 $headers = array('Content-Type: application/json');
 
 // Initialize a new cURL session
-// Initialize a new cURL session
-$curl = curl_init($url . '?' . $postData);
+$curl = curl_init($url);
 
 // Set the cURL options
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_HTTPGET, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-
 
 // Execute the cURL request and get the response
 $response = curl_exec($curl);
