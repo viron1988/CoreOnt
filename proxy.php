@@ -8,15 +8,7 @@ $headers = array('Content-Type: application/json');
 // Allow requests from any origin
 header('Access-Control-Allow-Origin: *');
 
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 
-
-// Handle pre-flight requests
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type');
-    exit();
-}
 
 // Get the data from the POST request
 $postData = file_get_contents('php://input');
