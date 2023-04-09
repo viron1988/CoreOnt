@@ -17,7 +17,7 @@
       </nav>
     </header>
     <h1>Contact Us</h1>
-    <form method="post" action="/sendemail.php">
+    <form id="contact-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required><br><br>
       <label for="email">Email:</label>
@@ -26,5 +26,25 @@
       <textarea id="message" name="message" required></textarea><br><br>
       <input type="submit" value="Submit">
     </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function() {
+        $('#contact-form').submit(function(event) {
+          event.preventDefault();
+          var formData = $(this).serialize();
+          $.ajax({
+            type: "POST",
+            url: "/proxy.php",
+            data: formData,
+            success: function(data) {
+              // Do something with the response data
+            },
+            error: function() {
+              // Handle any errors
+            }
+          });
+        });
+      });
+    </script>
   </body>
-</html>
+</html> 
