@@ -1,4 +1,6 @@
 <?php
+chmod("send_email.php", 0755);
+
 // Replace with your Sendinblue API key
 $api_key = "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";
 
