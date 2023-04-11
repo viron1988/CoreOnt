@@ -19,7 +19,7 @@ for (var i = 0; i < articleLinks.length; i++) {
   articleLinks[i].addEventListener("click", handleArticleClick);
 }
 
-function sendEmail(name, email, message, senderName, senderEmail) {
+function sendEmail(name, email, message) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://api.sendinblue.com/v3/smtp/email');
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -31,8 +31,8 @@ function sendEmail(name, email, message, senderName, senderEmail) {
   };
   var body = {
     "sender": {
-      "name": senderName,
-      "email": senderEmail
+      "name": name,
+      "email": email
     },
     "to": [
       {
@@ -56,14 +56,10 @@ submitButton.addEventListener('click', function(event) {
   var nameInput = document.getElementById('name');
   var emailInput = document.getElementById('email');
   var messageInput = document.getElementById('message');
-  var senderNameInput = document.getElementById('sender-name');
-  var senderEmailInput = document.getElementById('sender-email');
   var name = nameInput.value;
   var email = emailInput.value;
   var message = messageInput.value;
-  var senderName = senderNameInput.value;
-  var senderEmail = senderEmailInput.value;
-  sendEmail(name, email, message, senderName, senderEmail);
+  sendEmail(name, email, message);
 });
 
 const form = document.querySelector('#contact-form');
