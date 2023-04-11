@@ -24,27 +24,12 @@
       <input type="email" id="email" name="email" required><br><br>
       <label for="message">Message:</label>
       <textarea id="message" name="message" required></textarea><br><br>
+      <label for="sender-name">Your Name:</label>
+      <input type="text" id="sender-name" name="sender-name"><br><br>
+      <label for="sender-email">Your Email:</label>
+      <input type="email" id="sender-email" name="sender-email"><br><br>
       <input type="submit" value="Submit">
     </form>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(function() {
-        $('#contact-form').submit(function(event) {
-          event.preventDefault();
-          var formData = $(this).serialize();
-          $.ajax({
-            type: "POST",
-            url: "/proxy.php",
-            data: formData,
-            success: function(data) {
-              // Do something with the response data
-            },
-            error: function() {
-              // Handle any errors
-            }
-          });
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
-</html> 
+</html>
