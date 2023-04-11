@@ -2,7 +2,7 @@ function sendEmail(name, email, message) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://api.sendinblue.com/v3/smtp/email');
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('api-key', process.env.MY_SENDINBLUE_KEY);
+  xhr.setRequestHeader('api-key', process.env.GNR_SENDINBLUE_API);
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       console.log(xhr.response);
